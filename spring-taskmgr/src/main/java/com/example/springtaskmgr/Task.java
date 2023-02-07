@@ -4,14 +4,15 @@ import java.util.Date;
 
 public class Task {
 
-    Integer id;
-    String title;
-    String description;
-    Date dueDate;
+    private Integer id;
+    private String title;
+    private String description;
+    private Date dueDate;
 
-    public  Task(){
+    public Task() {
 
     }
+
     public Task(Integer id, String title, String description, Date dueDate) {
         this.id = id;
         this.title = title;

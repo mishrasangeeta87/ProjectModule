@@ -81,6 +81,9 @@ public class TasksController {
             throw new ResourceNotFoundException();
         }
 
+        if (task.getId() != null) {
+            foundTask.setId(task.getId());
+        }
         if (task.getTitle() != null) {
             foundTask.setTitle(task.getTitle());
         }
@@ -92,7 +95,7 @@ public class TasksController {
         }
 
         taskList.add(foundTask);
-        idTaskMap.put(id,foundTask);
+        idTaskMap.put(foundTask.getId(), foundTask);
         return foundTask;
     }
 
