@@ -68,6 +68,7 @@ public class TasksController {
             throw new ResourceNotFoundException();
         }
         taskList.remove(task);
+        idTaskMap.remove(id);
         return task;
     }
 
