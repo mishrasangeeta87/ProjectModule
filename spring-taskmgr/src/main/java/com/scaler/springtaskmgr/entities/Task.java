@@ -7,13 +7,13 @@ public class Task {
     private Integer id;
     private String title;
     private String description;
-    private Date dueDate;
+    private String dueDate;
 
     public Task() {
 
     }
 
-    public Task(Integer id, String title, String description, Date dueDate) {
+    public Task(Integer id, String title, String description, String dueDate) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -45,11 +45,11 @@ public class Task {
         this.description = description;
     }
 
-    public Date getDueDate() {
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 }
