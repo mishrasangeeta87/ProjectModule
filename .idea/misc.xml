@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/java-basics/pom.xml" />
         <option value="$PROJECT_DIR$/spring-basics/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-taskmgr/pom.xml" />
       </list>
     </option>
   </component>
@@ -14,5 +15,10 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="jpab" />
+  </component>
+  <component name="SwUserDefinedSpecifications">
+    <option name="specTypeByUrl">
+      <map />
+    </option>
   </component>
 </project>

@@ -1,5 +1,7 @@
-package com.example.springtaskmgr;
+package com.scaler.springtaskmgr.controllers;
 
+import com.scaler.springtaskmgr.ResourceNotFoundException;
+import com.scaler.springtaskmgr.entities.Task;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
