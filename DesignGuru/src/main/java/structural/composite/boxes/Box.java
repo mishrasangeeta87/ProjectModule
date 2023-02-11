@@ -1,4 +1,4 @@
-package structural.composite.shapes;
+package structural.composite.boxes;
 
 import java.util.List;
 
@@ -11,5 +11,13 @@ public class Box implements Item{
             totalPrice+= item.getPrice();
         }
         return totalPrice;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 }
