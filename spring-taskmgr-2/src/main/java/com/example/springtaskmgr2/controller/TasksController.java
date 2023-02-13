@@ -1,7 +1,7 @@
 package com.example.springtaskmgr2.controller;
 
 import com.example.springtaskmgr2.entities.TaskEntity;
-import com.example.springtaskmgr2.services.TasksService;
+import com.example.springtaskmgr2.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +14,7 @@ import java.util.List;
 public class TasksController {
 
     @Autowired
-    private TasksService tasksService;
+    private TaskService tasksService;
 
     @GetMapping
     public ResponseEntity<List<TaskEntity>> getTasks() {

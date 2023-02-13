@@ -11,15 +11,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TasksService {
+public class TaskService {
     // @Autowired
     TasksRepository tasksRepository;
-    //@Autowired
-    NotesRepository notesRepository;
 
-    public TasksService(TasksRepository tasksRepository, NotesRepository notesRepository) {
+    public TaskService(TasksRepository tasksRepository) {
         this.tasksRepository = tasksRepository;
-        this.notesRepository = notesRepository;
     }
 
     public List<TaskEntity> getAllTasks() {
@@ -71,12 +68,12 @@ public class TasksService {
 
     public List<TaskEntity> getTasksByTitle(String title) {
         Optional<List<TaskEntity>> tasksWithTitle = tasksRepository.findAllByTitleEqualsIgnoreCase(title);
-        return tasksWithTitle.orElseThrow(() -> new TaskNotFoundException(0));
+        return tasksWithTitle.orElseThrow(() -> new TaskNotFoundException(title));
     }
 
     public List<TaskEntity> getTasksByCompleted(Boolean completed) {
         Optional<List<TaskEntity>> tasksWithCompletedStatus = tasksRepository.findAllByCompleted(completed);
-        return tasksWithCompletedStatus.orElseThrow(() -> new TaskNotFoundException(0));
+        return tasksWithCompletedStatus.orElseThrow(() -> new TaskNotFoundException(completed));
     }
 
 
