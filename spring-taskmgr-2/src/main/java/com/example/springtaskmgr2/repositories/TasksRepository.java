@@ -3,15 +3,21 @@ package com.example.springtaskmgr2.repositories;
 import com.example.springtaskmgr2.entities.TaskEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface TasksRepository extends JpaRepository<TaskEntity,Integer> {
-    List<TaskEntity> findAllByCompleted(boolean completed);
+
+    Optional<TaskEntity> deleteTaskEntityById(Integer id);
+
+    Optional<TaskEntity> findById(Integer id);
+    Optional<List<TaskEntity>> findAllByCompleted(boolean completed);
+
+    Optional<List<TaskEntity>> findAllByTitleEqualsIgnoreCase(String title);
 
     @Query("SELECT t FROM tasks t WHERE t.completed=false  AND t.dueDate< CURRENT_DATE ")
     List<TaskEntity> findAllOverdue();

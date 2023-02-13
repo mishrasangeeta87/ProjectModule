@@ -12,3 +12,17 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+    jmx:
+      exposure:
+        include: '*'
+    enabled-by-default: false
+  endpoint:
+    health:
+      show-details: always
+    beans:
+      enabled: true

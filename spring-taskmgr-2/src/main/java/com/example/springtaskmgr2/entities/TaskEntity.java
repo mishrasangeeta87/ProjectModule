@@ -25,6 +25,6 @@ public class TaskEntity extends BaseEntity {
     @Column(name = "due_date", nullable = true)
     Date dueDate;
 
-//    @OneToMany(mappedBy = "task")
-//    List<NoteEntity> notes;
+    @OneToMany(mappedBy = "task")
+    List<NoteEntity> notes;
 }

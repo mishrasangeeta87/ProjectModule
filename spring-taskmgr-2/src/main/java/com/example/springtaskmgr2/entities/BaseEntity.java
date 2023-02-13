@@ -21,7 +21,4 @@ public abstract class BaseEntity {
     @Column(name="created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date createdAt;
 
-    public Integer getId() {
-        return id;
-    }
 }
