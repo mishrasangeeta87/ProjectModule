@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring-taskmgr-2" />
+        <module name="blog-api" />
         <module name="spring-basics" />
         <module name="spring-taskmgr" />
         <module name="java-basics" />
@@ -17,6 +18,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="blog-api" options="-parameters" />
       <module name="spring-basics" options="-parameters" />
       <module name="spring-taskmgr" options="-parameters" />
       <module name="spring-taskmgr-2" options="-parameters" />
