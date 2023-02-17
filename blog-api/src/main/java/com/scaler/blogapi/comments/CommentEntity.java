@@ -8,7 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
-@Entity
+@Entity(name="comments")
 public class CommentEntity extends BaseEntity {
     @Column(nullable = false,length = 100)
     String title;

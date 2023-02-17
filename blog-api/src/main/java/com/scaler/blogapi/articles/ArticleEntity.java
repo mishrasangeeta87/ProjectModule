@@ -5,7 +5,9 @@ import com.scaler.blogapi.users.UserEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import java.util.List;
 
 @Entity(name = "articles")
 public class ArticleEntity extends BaseEntity {
@@ -20,5 +22,8 @@ public class ArticleEntity extends BaseEntity {
 
     @ManyToOne
     UserEntity author;
+
+    @ManyToMany
+    List<UserEntity> likedBy;
 
 }
