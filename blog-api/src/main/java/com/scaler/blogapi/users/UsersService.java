@@ -2,9 +2,13 @@ package com.scaler.blogapi.users;
 
 import com.scaler.blogapi.users.dto.CreateUserDTO;
 import com.scaler.blogapi.users.dto.LoginUserDTO;
+import com.scaler.blogapi.users.dto.UserProfileDTO;
 import com.scaler.blogapi.users.dto.UserResponseDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UsersService implements IUserService {
@@ -38,8 +42,31 @@ public class UsersService implements IUserService {
             throw new IncorrectPasswordException();
         }
 
-        UserResponseDTO userResponseDTO = modelMapper.map(userEntity,UserResponseDTO.class);
+        UserResponseDTO userResponseDTO = modelMapper.map(userEntity, UserResponseDTO.class);
         return userResponseDTO;
+    }
+
+    public List<UserProfileDTO> getUserProfiles() {
+        List<UserEntity> userEntities = usersRepository.findAll();
+
+
+        List<UserProfileDTO> userProfiles = userEntities
+                .stream()
+                .map(user -> modelMapper.map(user, UserProfileDTO.class))
+                .collect(Collectors.toList());
+        return userProfiles;
+    }
+
+    public UserProfileDTO getProfileByUserName(String username) {
+        UserEntity userEntity = usersRepository.findByUsername(username);
+
+        if (userEntity == null) {
+            throw new UserNotFoundException(username);
+        } else {
+            UserProfileDTO userProfileDTO = modelMapper.map(userEntity, UserProfileDTO.class);
+            return userProfileDTO;
+        }
+
     }
 
     public static class UserNotFoundException extends IllegalArgumentException {
